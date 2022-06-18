@@ -23,7 +23,7 @@ const createNavElement = () => {
   const content = document.querySelector('.container');
   const navHeader =
   `<nav class = "nav-header">
-    <h2 class = "title">Todo List</h2>
+    <h2 class = "title"><span class = "indent-color">Your</span>Todo List</h2>
     <div class = "date-header">DATE</div>
   </nav>`;
 
