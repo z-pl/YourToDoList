@@ -1,3 +1,5 @@
+import { add } from "date-fns";
+
 // --- OTHER FUNCTIONS ---
 const addToContent = (type, element, parent) => {
   parent.insertAdjacentHTML(type, element);
@@ -14,7 +16,7 @@ const getProjectList = () => {
   const element = document.querySelector('.project-list');
 
   return element;
-}
+};
 
 // -- NAV ELEMENT --
 const createNavElement = () => {
@@ -39,26 +41,32 @@ const createProjectHeader = () => {
 
 const createProjectList = () => {
   const projectList =
-  '<div class = "project-list"></div';
+  '<ul class = "project-list"></ul>';
 
   addToContent('beforeend', projectList, getProjectsContainerElement());
 };
 
+// --- PROJECT CRUD ---
 const addToProjectList = (projectName) => {
   const newProject =
-  `<div class = "project-item">
+  `<li class = "project-item">
     <p class = "project">${projectName}</p>
-  </div>`;
+  </li>`;
 
   addToContent('beforeend', newProject, getProjectList());
 };
 
-
+const getSampleProjects = () => {
+  addToProjectList('test 1');
+  addToProjectList('test 2');
+  addToProjectList('test 3');
+};
 
 const createDOMLayout = () => {
   createNavElement();
   createProjectHeader();
   createProjectList();
+  getSampleProjects();
 };
 
-export { createDOMLayout }
+export { createDOMLayout, addToProjectList };

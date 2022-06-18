@@ -1,3 +1,3 @@
-import { createDOMLayout } from "./createDOMLayout";
+import { createDOMLayout } from "./createDOMElements";
 
 createDOMLayout();
