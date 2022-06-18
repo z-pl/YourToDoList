@@ -1,0 +1,44 @@
+:root {
+  --default-textColor: white;
+  --nav-color: black;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--default-textColor);
+}
+
+/* --- CONTAINER --- */
+.container {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  grid-template-rows: 1fr 11fr;
+}
+
+/* --- NAV HEADER --- */
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-color);
+  grid-column: 1 / -1;
+}
+
+/* --- NAV HEADER COMPONENTS --- */
+
+.title {
+  margin: 0;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 38px;
+}
+
+.date-header {
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 20px;
+}

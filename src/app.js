@@ -1,1 +1,3 @@
-console.log("hellow")
+import { createDOMLayout } from "./createDOMLayout";
+
+createDOMLayout();
