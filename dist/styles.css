@@ -42,3 +42,15 @@ body {
   padding-bottom: 20px;
   font-size: 20px;
 }
+
+/* --- PROJECTS BAR --- */
+.projects {
+  border: 1px solid white;
+  background-color: yellow;
+}
+
+/* --- TASKS CONTENT --- */
+.tasks {
+  border: 1px solid white;
+  background-color: red;
+}
