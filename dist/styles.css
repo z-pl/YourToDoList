@@ -11,7 +11,7 @@
   --project-list-color: white;
 
   --project-list-hover-text: black;
-  --project-list-hover-bg: #fcd34d29;
+  --project-list-hover-bg: #fcd34d;
 
   --addProject-btn-bg: #fcd34d;
   --addProject-btn-text: black;
@@ -131,6 +131,14 @@ body {
 
 .addProject-container:hover {
   cursor: pointer;
+}
+
+.addProject-btn {
+  transition: transform .9s ease-in-out;
+}
+
+.addProject-container:hover .addProject-btn {
+  transform: rotate(360deg);
 }
 
 .new-project-text {
