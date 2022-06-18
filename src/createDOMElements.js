@@ -46,6 +46,16 @@ const createProjectList = () => {
   addToContent('beforeend', projectList, getProjectsContainerElement());
 };
 
+const createAddProjectBtn = () => {
+  const addProjectBtn = `
+  <div class = "addProject-container">
+    <i class="fa-solid fa-plus addProject-btn"></i>
+    <p class = "new-project-text">New Project</p>
+  </div>`;
+
+  addToContent('beforeend', addProjectBtn, getProjectsContainerElement());
+};
+
 // --- PROJECT CRUD ---
 const addToProjectList = (projectName) => {
   const newProject =
@@ -66,6 +76,7 @@ const createDOMLayout = () => {
   createNavElement();
   createProjectHeader();
   createProjectList();
+  createAddProjectBtn();
   getSampleProjects();
 };
 

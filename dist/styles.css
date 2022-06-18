@@ -11,7 +11,10 @@
   --project-list-color: white;
 
   --project-list-hover-text: black;
-  --project-list-hover-bg: #fcd34d;
+  --project-list-hover-bg: #fcd34d29;
+
+  --addProject-btn-bg: #fcd34d;
+  --addProject-btn-text: black;
 }
 
 body {
@@ -111,6 +114,30 @@ body {
   color: var(--project-list-hover-text);
   border-radius: 20px;
   border: 1px solid black;
+}
+
+.addProject-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  margin-top: 20px;
+  border-radius: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: var(--addProject-btn-bg);
+  color: var(--addProject-btn-text);
+}
+
+.addProject-container:hover {
+  cursor: pointer;
+}
+
+.new-project-text {
+  margin: 0;
+}
+.addProject-btn {
+  font-size: 25px;
 }
 
 /* --- TASKS CONTENT --- */
