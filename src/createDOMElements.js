@@ -58,11 +58,11 @@ const createAddProjectBtn = () => {
 
 const createProjectsForm = () => {
   const projectForm =
-  `<div class = "form-container">
+  `<div class = "projectForm-container" style = "display: none">
     <form action = "#" method = "get" class = "project-form">
       <input type = "text" id = "project-name-input" placeholder = "project name">
      <div class = "form-btns">
-      <input type= "image" id = "confirm-projectBtn-" src="img/circle-check-regular.svg"/>
+      <input type= "image" id = "confirm-projectBtn" src="img/circle-check-regular.svg"/>
       <input type= "image" id = "cancel-projectBtn" src="img/circle-xmark-regular.svg"/>
      </div>
     </form>
@@ -76,6 +76,7 @@ const addToProjectList = (projectName) => {
   const newProject =
   `<li class = "project-item">
     <p class = "project">${projectName}</p>
+    <i class="fa-solid fa-trash-can delete-project"></i>
   </li>`;
 
   addToContent('beforeend', newProject, getProjectList());
