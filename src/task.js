@@ -1,8 +1,8 @@
-function Task(taskName, id) {
+function createTask(taskName, id) {
   const taskId = () => id;
   const name = () => taskName;
 
-  return { name, taskId}
+  return { name, taskId };
 }
 
-export { Task };
+export { createTask };

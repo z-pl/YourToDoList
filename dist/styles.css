@@ -148,6 +148,37 @@ body {
   font-size: 25px;
 }
 
+/* --- ADD PROJECT FORM --- */
+.project-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#project-name-input {
+  height: 30px;
+  width: 200px;
+  border-radius: 3px;
+  border: 2px solid black;
+  font-size: medium;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#project-name-input:focus {
+  outline: 0;
+  border: 2px solid var(--indent-color);
+}
+#confirm-projectBtn,
+#cancel-projectBtn {
+  fill: green;
+}
+
+.form-btns {
+  display: flex;
+  gap: 10px;
+}
 /* --- TASKS CONTENT --- */
 .tasks {
   background-color: var(--tasks-bg-color);

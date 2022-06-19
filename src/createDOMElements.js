@@ -56,6 +56,21 @@ const createAddProjectBtn = () => {
   addToContent('beforeend', addProjectBtn, getProjectsContainerElement());
 };
 
+const createProjectsForm = () => {
+  const projectForm =
+  `<div class = "form-container">
+    <form action = "#" method = "get" class = "project-form">
+      <input type = "text" id = "project-name-input" placeholder = "project name">
+     <div class = "form-btns">
+      <input type= "image" id = "confirm-projectBtn-" src="img/circle-check-regular.svg"/>
+      <input type= "image" id = "cancel-projectBtn" src="img/circle-xmark-regular.svg"/>
+     </div>
+    </form>
+  </div>`;
+
+  addToContent('beforeend', projectForm, getProjectsContainerElement());
+};
+
 // --- PROJECT CRUD ---
 const addToProjectList = (projectName) => {
   const newProject =
@@ -77,6 +92,7 @@ const createDOMLayout = () => {
   createProjectHeader();
   createProjectList();
   createAddProjectBtn();
+  createProjectsForm();
   getSampleProjects();
 };
 
