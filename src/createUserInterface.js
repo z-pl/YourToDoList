@@ -10,7 +10,7 @@ const setupInterface = () => {
 
 const initializeProject = () => {
   deleteProjectBtnEL(deleteProjectAction);
-}
+};
 const addProjectBtnAction = (addProjectBtnElement) => {
   const addProjectBtn = addProjectBtnElement;
   const projectForm = getProjectFormsContainer();
@@ -38,7 +38,6 @@ const deleteProjectAction = (deleteBtn) => {
   const projectName = deleteBtn.previousElementSibling;
   deleteProject(projectName.innerText);
   projectItem.remove();
-
-}
+};
 
 export { setupInterface }

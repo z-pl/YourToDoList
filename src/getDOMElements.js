@@ -28,6 +28,16 @@ const getDeleteProjectBtns = () => {
   return deleteBtns;
 };
 
+const getTasksContainer = () => {
+  const task = document.querySelector('.tasks');
+  return task;
+};
+
+const getTaskList = () => {
+  const tasklist = document.querySelector('.task-list');
+  return tasklist;
+};
+
 export {
   getAddProjectBtn,
   getConfirmProjectBtn,
@@ -35,4 +45,6 @@ export {
   getProjectFormsContainer,
   getProjectInput,
   getDeleteProjectBtns,
+  getTasksContainer,
+  getTaskList,
 };

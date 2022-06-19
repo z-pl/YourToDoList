@@ -1,5 +1,5 @@
 import { add } from "date-fns";
-
+import { getTasksContainer, getTaskList } from "./getDOMElements";
 // --- OTHER FUNCTIONS ---
 const addToContent = (type, element, parent) => {
   parent.insertAdjacentHTML(type, element);
@@ -47,8 +47,8 @@ const createProjectList = () => {
 };
 
 const createAddProjectBtn = () => {
-  const addProjectBtn = `
-  <div class = "addProject-container">
+  const addProjectBtn =
+  `<div class = "addProject-container">
     <i class="fa-solid fa-plus addProject-btn"></i>
     <p class = "new-project-text">New Project</p>
   </div>`;
@@ -82,10 +82,40 @@ const addToProjectList = (projectName) => {
   addToContent('beforeend', newProject, getProjectList());
 };
 
+// -- TASKS ---
+const createTaskHeader = () => {
+  const taskHeader =
+  `<h3 class = "task-header">Tasks</h2>
+  <div class = "divider"></div>`;
+
+  addToContent('beforeend', taskHeader, getTasksContainer());
+};
+
+const createTaskList = () => {
+  const taskList = '<ul class = "task-list"></ul>';
+
+  addToContent('beforeend', taskList, getTasksContainer());
+};
+
+const addToTaskList = (taskName) => {
+  const newTask =
+  `<li class = "task-item">
+    <p class = "task">${taskName}</p>
+  </li>`;
+
+  addToContent('beforeend', newTask, getTaskList());
+};
+
 const getSampleProjects = () => {
   addToProjectList('test 1');
   addToProjectList('test 2');
   addToProjectList('test 3');
+};
+
+const getSampleTasks = () => {
+  addToTaskList('do some shopping');
+  addToTaskList('hello worlddasd');
+  addToTaskList('yooooo');
 };
 
 const createDOMLayout = () => {
@@ -95,6 +125,9 @@ const createDOMLayout = () => {
   createAddProjectBtn();
   createProjectsForm();
   getSampleProjects();
+  createTaskHeader();
+  createTaskList();
+  getSampleTasks();
 };
 
 export { createDOMLayout, addToProjectList };
