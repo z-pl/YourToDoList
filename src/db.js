@@ -7,8 +7,10 @@ const addProject = (projectName) => {
   projects[newProject.name()] = newProject;
 };
 
+const getProject = (projectName) => {
+  return projects[projectName];
+};
 const getProjects = () => {
-  console.log(projects);
   return projects;
 };
 
@@ -17,4 +19,9 @@ const deleteProject = (projectName) => {
 }
 
 
-export { addProject, getProjects, deleteProject };
+export {
+  addProject,
+  getProjects,
+  deleteProject,
+  getProject,
+};

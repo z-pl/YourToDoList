@@ -1,16 +1,41 @@
-import {addProjectBtnEL, confirmProjectBtnEL, deleteProjectBtnEL} from "./createEventListiners";
-import { getAddProjectBtn, getProjectFormsContainer, getProjectInput } from "./getDOMElements";
-import { addProject, getProjects, deleteProject } from "./db";
-import { addToProjectList } from "./createDOMElements";
+import { addProject, getProjects, deleteProject, getProject } from "./db";
+import { addToProjectList, updateTaskList } from "./createDOMElements";
+
+import {
+  addProjectBtnEL,
+  confirmProjectBtnEL,
+  deleteProjectBtnEL,
+  addTaskBtnEL,
+  confirmTaskBtnEL,
+  cancelTaskBtnEL,
+  projectSelectEL,
+} from "./createEventListiners";
+
+import {
+  getAddProjectBtn,
+  getProjectFormsContainer,
+  getProjectInput,
+  getTaskAddContainer,
+  getTaskFormsContainer,
+  getTaskFormInput,
+  getTaskFormAddBtn,
+  getTaskFormCancelBtn,
+} from "./getDOMElements";
+
 const setupInterface = () => {
   addProjectBtnEL(addProjectBtnAction);
   confirmProjectBtnEL(confirmProjectBtnAction);
+  addTaskBtnEL(addTaskBtnAction);
+  confirmTaskBtnEL(confirmTaskBtnAction);
+  cancelTaskBtnEL(cancelTaskBtnAction);
   initializeProject();
 };
 
 const initializeProject = () => {
   deleteProjectBtnEL(deleteProjectAction);
+  projectSelectEL(projectClickAction)
 };
+
 const addProjectBtnAction = (addProjectBtnElement) => {
   const addProjectBtn = addProjectBtnElement;
   const projectForm = getProjectFormsContainer();
@@ -29,6 +54,7 @@ const confirmProjectBtnAction = (confirmProjectBtnElement) => {
 
   addProject(projectInputField.value);
   addToProjectList(projectInputField.value);
+  clickedProject.lastProject = projectInputField.value;
   initializeProject();
   getProjects();
 };
@@ -39,5 +65,56 @@ const deleteProjectAction = (deleteBtn) => {
   deleteProject(projectName.innerText);
   projectItem.remove();
 };
+
+const addTaskBtnAction = () => {
+  const addTaskContainer = getTaskAddContainer();
+  const taskForm = getTaskFormsContainer();
+
+  addTaskContainer.style = 'display: none';
+  taskForm.style = 'display: flex';
+};
+
+const confirmTaskBtnAction = () => {
+  const addTaskContainer = getTaskAddContainer();
+  const taskForm = getTaskFormsContainer();
+  const taskInput = getTaskFormInput();
+
+  const currentProject = getProject(clickedProject.lastProject);
+  console.log(currentProject);
+  currentProject.addTask(taskInput.value);
+  updateTaskList(currentProject.getTasks());
+  addTaskContainer.style = 'display: block';
+  taskForm.style = 'display: none';
+};
+
+const cancelTaskBtnAction = () => {
+  const addTaskContainer = getTaskAddContainer();
+  const taskForm = getTaskFormsContainer();
+
+  addTaskContainer.style = 'display: block';
+  taskForm.style = 'display: none';
+};
+
+const projectClickAction = (project) => {
+  const projectName = project.querySelector('.project').innerText;
+  clickedProject.lastProject = projectName;
+  const currentProject = getProject(clickedProject.lastProject);
+  console.log(currentProject.getTasks());
+
+  try {
+    updateTaskList(currentProject.getTasks());
+  }catch(e) {
+    console.log("please add some tasks");
+  }
+};
+
+
+const clickedProject = {
+  lastProject: 'hi world',
+  set project(value) { this.lastProject = value; },
+
+  get project() { return this.lastPoject; },
+};
+
 
 export { setupInterface }

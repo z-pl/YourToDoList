@@ -38,6 +38,42 @@ const getTaskList = () => {
   return tasklist;
 };
 
+const getTaskBtn = () => {
+  const taskAdd = document.querySelector('.addTask-btn');
+  return taskAdd;
+};
+
+const getTaskAddContainer = () => {
+  const taskContainer = document.querySelector('.addTask-container');
+  return taskContainer;
+};
+
+const getTaskFormsContainer = () => {
+  const taskFormContainer = document.querySelector('.taskForm-container');
+  return taskFormContainer;
+};
+
+const getTaskFormInput = () => {
+  const inputField = document.querySelector('#task-name-input');
+  return inputField;
+};
+
+const getTaskFormAddBtn = () => {
+  const formAddBtn = document.querySelector('#confirm-taskBtn');
+  return formAddBtn;
+};
+
+const getTaskFormCancelBtn = () => {
+  const formCancelBtn = document.querySelector('#cancel-taskBtn');
+  return formCancelBtn;
+};
+
+const getAllProjects = () => {
+  const projects = document.querySelectorAll('.project-item');
+  return projects;
+};
+
+
 export {
   getAddProjectBtn,
   getConfirmProjectBtn,
@@ -47,4 +83,11 @@ export {
   getDeleteProjectBtns,
   getTasksContainer,
   getTaskList,
+  getTaskBtn,
+  getTaskAddContainer,
+  getTaskFormsContainer,
+  getTaskFormInput,
+  getTaskFormAddBtn,
+  getTaskFormCancelBtn,
+  getAllProjects,
 };

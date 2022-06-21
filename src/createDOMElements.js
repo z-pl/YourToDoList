@@ -97,6 +97,30 @@ const createTaskList = () => {
   addToContent('beforeend', taskList, getTasksContainer());
 };
 
+const createTaskAddForm = () => {
+  const taskForm =
+  `<div class = "taskForm-container" style = "display: none">
+  <form action = "#" method = "get" class = "task-form">
+    <input type = "text" id = "task-name-input" placeholder = "task name">
+   <div class = "form-btns">
+    <input type= "image" id = "confirm-taskBtn" src="img/circle-check-regular.svg"/>
+    <input type= "image" id = "cancel-taskBtn" src="img/circle-xmark-regular.svg"/>
+      </div>
+    </form>
+  </div>`;
+  addToContent('beforeend', taskForm, getTasksContainer());
+
+};
+
+const createAddTaskBtn = () => {
+  const addTask =
+  `<div class = "addTask-container">
+    <i class="fa-solid fa-plus addTask-btn"></i>
+  </div>`;
+
+  addToContent('beforeend', addTask, getTasksContainer());
+};
+
 const addToTaskList = (taskName) => {
   const newTask =
   `<li class = "task-item">
@@ -106,6 +130,15 @@ const addToTaskList = (taskName) => {
   addToContent('beforeend', newTask, getTaskList());
 };
 
+const updateTaskList = (newtaskList) => {
+  const taskList = getTaskList();
+  taskList.innerHTML = '';
+
+  const taskNames = Object.keys(newtaskList);
+  taskNames.forEach((taskName) => {
+    addToTaskList(taskName);
+  });
+};
 const getSampleProjects = () => {
   addToProjectList('test 1');
   addToProjectList('test 2');
@@ -127,7 +160,9 @@ const createDOMLayout = () => {
   getSampleProjects();
   createTaskHeader();
   createTaskList();
+  createTaskAddForm();
+  createAddTaskBtn();
   getSampleTasks();
 };
 
-export { createDOMLayout, addToProjectList };
+export { createDOMLayout, addToProjectList, addToTaskList, updateTaskList };
