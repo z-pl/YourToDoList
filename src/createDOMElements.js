@@ -24,12 +24,24 @@ const createNavElement = () => {
   const navHeader =
   `<nav class = "nav-header">
     <h2 class = "title"><span class = "indent-color">Your</span>Todo List</h2>
-    <div class = "date-header">DATE</div>
+    ${createToggleViewBtn()}
   </nav>`;
 
   addToContent('afterbegin', navHeader, content);
 };
 
+const createToggleViewBtn = () => {
+  const toggleBtn =
+  `<div class = "toggle-container">
+  <input type = "checkbox" class = "checkbox" id = "checkbox">
+  <label for = "checkbox" class = "label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <div class = "ball"></div>
+  </label>
+  </div>`;
+  return toggleBtn;
+}
 // -- PROJECT ELEMENT --
 const createProjectHeader = () => {
   const projectHeader =
@@ -125,6 +137,7 @@ const addToTaskList = (taskName) => {
   const newTask =
   `<li class = "task-item">
     <p class = "task">${taskName}</p>
+    <i class="fa-solid fa-xmark delete-task"></i>
   </li>`;
 
   addToContent('beforeend', newTask, getTaskList());

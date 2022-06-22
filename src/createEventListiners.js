@@ -8,6 +8,9 @@ import {
   getTaskFormCancelBtn,
   getTaskBtn,
   getAllProjects,
+  getDeleteTaskBtns,
+  getToggleBtn,
+  getBodyElement,
 } from "./getDOMElements";
 
 const addProjectBtnEL = (addProject) => {
@@ -73,6 +76,25 @@ const projectSelectEL = (projectAction) => {
   });
 };
 
+const deleteTaskEL = (deleteTask) => {
+  const deleteTaskBtns = getDeleteTaskBtns();
+  console.log(deleteTaskBtns);
+  deleteTaskBtns.forEach((deleteTaskBtn) => {
+    deleteTaskBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      deleteTask(deleteTaskBtn);
+    });
+  });
+};
+
+const toggleView = () => {
+  const toggleBtn = getToggleBtn();
+  const body = getBodyElement();
+
+  toggleBtn.addEventListener('change', (e) => {
+    body.classList.toggle('dark');
+  });
+};
 export {
   addProjectBtnEL,
   confirmProjectBtnEL,
@@ -81,4 +103,6 @@ export {
   confirmTaskBtnEL,
   cancelTaskBtnEL,
   projectSelectEL,
+  deleteTaskEL,
+  toggleView,
 };

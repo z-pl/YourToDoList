@@ -9,6 +9,8 @@ import {
   confirmTaskBtnEL,
   cancelTaskBtnEL,
   projectSelectEL,
+  deleteTaskEL,
+  toggleView,
 } from "./createEventListiners";
 
 import {
@@ -29,11 +31,17 @@ const setupInterface = () => {
   confirmTaskBtnEL(confirmTaskBtnAction);
   cancelTaskBtnEL(cancelTaskBtnAction);
   initializeProject();
+  initializeTask();
+  toggleView();
 };
 
 const initializeProject = () => {
   deleteProjectBtnEL(deleteProjectAction);
   projectSelectEL(projectClickAction)
+};
+
+const initializeTask = () => {
+  deleteTaskEL(deleteTaskAction);
 };
 
 const addProjectBtnAction = (addProjectBtnElement) => {
@@ -83,6 +91,7 @@ const confirmTaskBtnAction = () => {
   console.log(currentProject);
   currentProject.addTask(taskInput.value);
   updateTaskList(currentProject.getTasks());
+  initializeTask();
   addTaskContainer.style = 'display: block';
   taskForm.style = 'display: none';
 };
@@ -108,6 +117,15 @@ const projectClickAction = (project) => {
   }
 };
 
+const deleteTaskAction = (deleteBtn) => {
+  const taskItem = deleteBtn.parentElement;
+  const taskName = deleteBtn.previousElementSibling;
+  const currentProject = getProject(clickedProject.lastProject);
+
+  //deleteProject(tName.innerText);
+  currentProject.deleteTask(taskName.innerText);
+  taskItem.remove();
+};
 
 const clickedProject = {
   lastProject: 'hi world',

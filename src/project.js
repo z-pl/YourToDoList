@@ -10,7 +10,11 @@ function createProject(projectName) {
     tasks[newTask.name()] = newTask;
   };
 
-  return { name, addTask, getTasks };
+  const deleteTask = (taskName) => {
+    delete tasks[taskName];
+  };
+
+  return { name, addTask, getTasks, deleteTask };
 }
 
 export { createProject };

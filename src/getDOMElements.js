@@ -73,7 +73,21 @@ const getAllProjects = () => {
   return projects;
 };
 
+const getDeleteTaskBtns = () => {
+  const deleteTaskBtns = document.querySelectorAll('.delete-task');
+  return deleteTaskBtns;
+}
 
+
+const getToggleBtn = () => {
+  const toggleBtn = document.querySelector('#checkbox');
+  return toggleBtn;
+}
+
+const getBodyElement = () => {
+  const body = document.querySelector('body');
+  return body;
+}
 export {
   getAddProjectBtn,
   getConfirmProjectBtn,
@@ -90,4 +104,7 @@ export {
   getTaskFormAddBtn,
   getTaskFormCancelBtn,
   getAllProjects,
+  getDeleteTaskBtns,
+  getToggleBtn,
+  getBodyElement,
 };
